@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.fashare.activitytracker"
         minSdkVersion 15
@@ -10,8 +12,29 @@ android {
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+
+    //签名
+    signingConfigs {
+        config {
+            storeFile file("keystore.jks")
+            storePassword 'jiedong.android!!'
+            keyAlias 'wjd.android'
+            keyPassword 'jiedong.android!!'
+        }
+    }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            pseudoLocalesEnabled false
+            debuggable true
+            jniDebuggable true
+            signingConfig signingConfigs.config
+        }
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -19,7 +42,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'androidx.appcompat:appcompat:1.0.0'
-    compile 'de.greenrobot:eventbus:2.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'de.greenrobot:eventbus:2.4.0'
 }
