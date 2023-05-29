@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,16 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
         checkOverlayPermission();
 
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(AccessibilityUtil.checkAccessibility(MainActivity.this)) {
-                    startService(
-                            new Intent(MainActivity.this, TrackerService.class)
-                                    .putExtra(TrackerService.COMMAND, TrackerService.COMMAND_OPEN)
-                    );
-                    finish();
-                }
+        findViewById(R.id.btn).setOnClickListener(v -> {
+            if(AccessibilityUtil.checkAccessibility(MainActivity.this)) {
+                startService(
+                        new Intent(MainActivity.this, TrackerService.class)
+                                .putExtra(TrackerService.COMMAND, TrackerService.COMMAND_OPEN)
+                );
+                finish();
             }
         });
     }
