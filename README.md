@@ -28,7 +28,7 @@ http://blog.csdn.net/a153614131/article/details/53891190
 <br/>
 
 # APK 下载体验
-[ActivityTracker.apk](https://github.com/fashare2015/ActivityTracker/blob/master/apk/app-debug.apk?raw=true)
+[ActivityTracker.apk](https://codeup.aliyun.com/5fa6985a5dbd2870061436e5/hply/ActivityTracker/blob/master/apk/app-release.apk?raw=true)
 <br/>
 
 # 使用
